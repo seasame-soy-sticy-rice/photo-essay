@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+._*
+
+# Editors / tools
+.vscode/
+.idea/
+.claude/
+*.swp
+
+# Source essay PDF (large; images are exported to images/)
+*.pdf
+
+# Procreate / design source files
+*.procreate
+*.psd
+
+# Python / Node leftovers
+__pycache__/
+.venv/
+venv/
+node_modules/
