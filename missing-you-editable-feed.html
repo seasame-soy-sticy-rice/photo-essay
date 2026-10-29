@@ -17,7 +17,7 @@ main{max-width:620px;margin:0 auto;padding:32px 16px 64px}
 /* profile */
 .profile{display:flex;gap:20px;align-items:center;margin:0 0 20px}
 .avatar{flex:none;width:76px;height:76px;border-radius:50%;padding:3px;background:linear-gradient(45deg,#c9a27e,var(--brown))}
-.avatar span{display:flex;align-items:center;justify-content:center;width:100%;height:100%;border-radius:50%;background:var(--bg);border:2px solid var(--bg);font-family:Georgia,serif;font-size:28px;color:var(--brown)}
+.avatar img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover;border:2px solid var(--bg)}
 .profile .name{font-weight:600;margin:0}
 .stats{display:flex;gap:18px;font-size:14px;color:var(--muted);margin:2px 0 0}
 .stats b{color:var(--ink)}
@@ -28,28 +28,23 @@ main{max-width:620px;margin:0 auto;padding:32px 16px 64px}
 .grid a{position:relative;display:block;aspect-ratio:1;overflow:hidden;background:var(--frame)}
 .grid img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .2s}
 .grid a:hover img{opacity:.8}
-.grid .multi::after{content:"";position:absolute;top:6px;right:6px;width:14px;height:14px;border:2px solid #fff;border-radius:2px;box-shadow:3px -3px 0 -1px rgba(255,255,255,.85)}
+.grid .pair{display:grid;grid-template-columns:1fr 1fr;gap:1px}
 
 /* posts */
 .post{background:var(--card);border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin:0 0 40px;scroll-margin-top:16px}
 .post-head{display:flex;align-items:center;gap:10px;padding:12px 14px}
 .post-head .avatar{width:34px;height:34px;padding:2px}
-.post-head .avatar span{font-size:14px;border-width:1px}
+.post-head .avatar img{border-width:1px}
 .who{line-height:1.25;font-size:14px}
 .who b{display:block}
 .who small{color:var(--muted);font-size:12px}
 .post-head .page{margin-left:auto;font-size:12px;color:var(--muted)}
 figure{margin:0;background:var(--frame)}
 figure img{display:block;width:100%;height:auto}
-.carousel{position:relative}
-.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;background:var(--frame)}
-.slides::-webkit-scrollbar{display:none}
-.slides figure{flex:0 0 100%;scroll-snap-align:center;display:flex;align-items:center;position:relative}
-.slides figcaption{position:absolute;top:10px;left:10px;background:rgba(31,26,25,.7);color:#fff;font-size:12px;padding:2px 8px;border-radius:10px}
-.count{position:absolute;top:10px;right:10px;background:rgba(31,26,25,.7);color:#fff;font-size:12px;padding:2px 8px;border-radius:10px}
-.dots{display:flex;justify-content:center;gap:5px;padding:10px 0 0}
-.dots i{width:6px;height:6px;border-radius:50%;background:var(--rule)}
-.dots i.on{background:var(--brown)}
+.diptych{display:grid;grid-template-columns:1fr 1fr;gap:3px;background:var(--card)}
+.diptych figure{position:relative;aspect-ratio:4/5;overflow:hidden}
+.diptych img{width:100%;height:100%;object-fit:cover}
+.diptych figcaption{position:absolute;top:10px;left:10px;background:rgba(31,26,25,.7);color:#fff;font-size:12px;padding:2px 8px;border-radius:10px}
 .actions{display:flex;gap:14px;padding:10px 14px 2px}
 .actions button{all:unset;cursor:pointer;line-height:0}
 .actions svg{width:24px;height:24px;fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}
@@ -73,7 +68,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:8px 0 0}
 <main>
 
 <section class="profile" aria-label="Profile">
-<div class="avatar"><span>R</span></div>
+<div class="avatar"><img src="images/avatar.jpg" alt="Rachael Tong"></div>
 <div><p class="name">Rachael Tong</p>
 <p class="stats"><span><b>12</b> posts</span><span><b>2007–2026</b></span><span><b>Shanghai</b></span></p></div>
 </section>
@@ -93,12 +88,12 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:8px 0 0}
 <a href="#p8"><img src="images/08-2023-beetle-street.jpg" alt="2023, a small street" loading="lazy"></a>
 <a href="#p9"><img src="images/09-2025-cyberpunk.jpg" alt="2025, playing Cyberpunk 2077" loading="lazy"></a>
 <a href="#p10"><img src="images/10-2024-dojo-oss.jpg" alt="2024, the dojo" loading="lazy"></a>
-<a href="#p11" class="multi"><img src="images/11a-2007-sundial.jpg" alt="2007 &amp; 2026, sundial on Century Avenue" loading="lazy"></a>
+<a href="#p11" class="pair"><img src="images/11a-2007-sundial.jpg" alt="2007, sundial on Century Avenue" loading="lazy"><img src="images/11b-2026-sundial.jpg" alt="2026, sundial on Century Avenue" loading="lazy" style="object-position:42% 50%"></a>
 <a href="#p12"><img src="images/12-2024-volleyball-court.jpg" alt="2024, high-school volleyball court" loading="lazy"></a>
 </nav>
 
 <article class="post" id="p1">
-<div class="post-head"><div class="avatar"><span>R</span></div><div class="who"><b>Rachael Tong</b><small>The old family house, Shanghai · 2008</small></div><span class="page">p. 2</span></div>
+<div class="post-head"><div class="avatar"><img src="images/avatar.jpg" alt="" loading="lazy"></div><div class="who"><b>Rachael Tong</b><small>The old family house, Shanghai · 2008</small></div><span class="page">p. 2</span></div>
 <figure><img src="images/01-2008-birthday.jpg" alt="A smiling child hugs her cousin beside a birthday cake with a ‘12’ candle; his face is erased and replaced with the handwritten words ‘We grew up before we realized it.’" loading="lazy"></figure>
 <div class="actions" aria-hidden="true"></div>
 <div class="post-body">
@@ -108,7 +103,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:8px 0 0}
 </div></article>
 
 <article class="post" id="p2">
-<div class="post-head"><div class="avatar"><span>R</span></div><div class="who"><b>Rachael Tong</b><small>Playground beside my uncle’s old house · 2007</small></div><span class="page">p. 3</span></div>
+<div class="post-head"><div class="avatar"><img src="images/avatar.jpg" alt="" loading="lazy"></div><div class="who"><b>Rachael Tong</b><small>Playground beside my uncle’s old house · 2007</small></div><span class="page">p. 3</span></div>
 <figure><img src="images/02-2007-playground.jpg" alt="Two children sit holding hands at the bottom of a blue slide; the older girl’s face is erased and replaced with ‘I remember us before I learned to remember.’" loading="lazy"></figure>
 <div class="actions" aria-hidden="true"></div>
 <div class="post-body">
@@ -118,7 +113,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:8px 0 0}
 </div></article>
 
 <article class="post" id="p3">
-<div class="post-head"><div class="avatar"><span>R</span></div><div class="who"><b>Rachael Tong</b><small>The old family house, Shanghai · 2007</small></div><span class="page">p. 4</span></div>
+<div class="post-head"><div class="avatar"><img src="images/avatar.jpg" alt="" loading="lazy"></div><div class="who"><b>Rachael Tong</b><small>The old family house, Shanghai · 2007</small></div><span class="page">p. 4</span></div>
 <figure><img src="images/03-2007-father.jpg" alt="A toddler in a red coat sits on her father’s lap; his face is erased and replaced with ‘your love is real, so is your abuse.’" loading="lazy"></figure>
 <div class="actions" aria-hidden="true"></div>
 <div class="post-body">
@@ -128,7 +123,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:8px 0 0}
 </div></article>
 
 <article class="post" id="p4">
-<div class="post-head"><div class="avatar"><span>R</span></div><div class="who"><b>Rachael Tong</b><small>The old family house, Shanghai · 2007</small></div><span class="page">p. 5</span></div>
+<div class="post-head"><div class="avatar"><img src="images/avatar.jpg" alt="" loading="lazy"></div><div class="who"><b>Rachael Tong</b><small>The old family house, Shanghai · 2007</small></div><span class="page">p. 5</span></div>
 <figure><img src="images/04-2007-old-house.jpg" alt="A toddler in a red butterfly sweater sits on a woman’s lap; the woman’s face is erased and replaced with ‘missing you is a part of moving on.’" loading="lazy"></figure>
 <div class="actions" aria-hidden="true"></div>
 <div class="post-body">
@@ -138,7 +133,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:8px 0 0}
 </div></article>
 
 <article class="post" id="p5">
-<div class="post-head"><div class="avatar"><span>R</span></div><div class="who"><b>Rachael Tong</b><small>Graduation party, Shanghai · 2023</small></div><span class="page">p. 7</span></div>
+<div class="post-head"><div class="avatar"><img src="images/avatar.jpg" alt="" loading="lazy"></div><div class="who"><b>Rachael Tong</b><small>Graduation party, Shanghai · 2023</small></div><span class="page">p. 7</span></div>
 <figure><img src="images/05-2023-graduation-stars.jpg" alt="Overhead view of a hotpot table; the friends’ reaching arms are erased with white strokes, each marked with a drawn star." loading="lazy"></figure>
 <div class="actions" aria-hidden="true"></div>
 <div class="post-body">
@@ -148,7 +143,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:8px 0 0}
 </div></article>
 
 <article class="post" id="p6">
-<div class="post-head"><div class="avatar"><span>R</span></div><div class="who"><b>Rachael Tong</b><small>Window shopping, Shanghai · 2021</small></div><span class="page">p. 8</span></div>
+<div class="post-head"><div class="avatar"><img src="images/avatar.jpg" alt="" loading="lazy"></div><div class="who"><b>Rachael Tong</b><small>Window shopping, Shanghai · 2021</small></div><span class="page">p. 8</span></div>
 <figure><img src="images/06-2021-window-shopping.jpg" alt="A mirror selfie of me in a straw hat; my friend’s body beside me is erased into a white silhouette reading ‘Best counselor ever.’" loading="lazy"></figure>
 <div class="actions" aria-hidden="true"></div>
 <div class="post-body">
@@ -158,7 +153,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:8px 0 0}
 </div></article>
 
 <article class="post" id="p7">
-<div class="post-head"><div class="avatar"><span>R</span></div><div class="who"><b>Rachael Tong</b><small>Dinner with friends, Shanghai · 2026</small></div><span class="page">p. 9</span></div>
+<div class="post-head"><div class="avatar"><img src="images/avatar.jpg" alt="" loading="lazy"></div><div class="who"><b>Rachael Tong</b><small>Dinner with friends, Shanghai · 2026</small></div><span class="page">p. 9</span></div>
 <figure><img src="images/07-2026-friend-n.jpg" alt="A dinner table with drinks; my friends’ hands are erased with white strokes reading ‘Maybe I miss you’ and ‘Maybe I miss who I was with you.’" loading="lazy"></figure>
 <div class="actions" aria-hidden="true"></div>
 <div class="post-body">
@@ -168,7 +163,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:8px 0 0}
 </div></article>
 
 <article class="post" id="p8">
-<div class="post-head"><div class="avatar"><span>R</span></div><div class="who"><b>Rachael Tong</b><small>A small street in Shanghai · 2023</small></div><span class="page">p. 10</span></div>
+<div class="post-head"><div class="avatar"><img src="images/avatar.jpg" alt="" loading="lazy"></div><div class="who"><b>Rachael Tong</b><small>A small street in Shanghai · 2023</small></div><span class="page">p. 10</span></div>
 <figure><img src="images/08-2023-beetle-street.jpg" alt="Two shadows on a pavement; my friend’s hand holding a beetle is erased into a white stroke reading ‘We used to be us. We are no longer us. We won’t be us any more.’" loading="lazy"></figure>
 <div class="actions" aria-hidden="true"></div>
 <div class="post-body">
@@ -178,7 +173,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:8px 0 0}
 </div></article>
 
 <article class="post" id="p9">
-<div class="post-head"><div class="avatar"><span>R</span></div><div class="who"><b>Rachael Tong</b><small>Playing Cyberpunk 2077 · 2025</small></div><span class="page">p. 11</span></div>
+<div class="post-head"><div class="avatar"><img src="images/avatar.jpg" alt="" loading="lazy"></div><div class="who"><b>Rachael Tong</b><small>Playing Cyberpunk 2077 · 2025</small></div><span class="page">p. 11</span></div>
 <figure><img src="images/09-2025-cyberpunk.jpg" alt="Two game controllers held up in front of a screen showing Cyberpunk 2077; my friend’s hand is erased and replaced with ‘Somewhere in my memory, we are still playing.’" loading="lazy"></figure>
 <div class="actions" aria-hidden="true"></div>
 <div class="post-body">
@@ -188,7 +183,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:8px 0 0}
 </div></article>
 
 <article class="post" id="p10">
-<div class="post-head"><div class="avatar"><span>R</span></div><div class="who"><b>Rachael Tong</b><small>My dojo, Shanghai · 2024</small></div><span class="page">p. 12</span></div>
+<div class="post-head"><div class="avatar"><img src="images/avatar.jpg" alt="" loading="lazy"></div><div class="who"><b>Rachael Tong</b><small>My dojo, Shanghai · 2024</small></div><span class="page">p. 12</span></div>
 <figure><img src="images/10-2024-dojo-oss.jpg" alt="A group of Brazilian jiu-jitsu students in gis on the mat, faces erased, with ‘OSS!’ written below." loading="lazy"></figure>
 <div class="actions" aria-hidden="true"></div>
 <div class="post-body">
@@ -198,23 +193,20 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:8px 0 0}
 </div></article>
 
 <article class="post" id="p11">
-<div class="post-head"><div class="avatar"><span>R</span></div><div class="who"><b>Rachael Tong</b><small>Sundial, Century Avenue · 2007 &amp; 2026</small></div><span class="page">p. 13</span></div>
-<div class="carousel">
-<div class="slides" tabindex="0" aria-label="Two photos, swipe to compare">
+<div class="post-head"><div class="avatar"><img src="images/avatar.jpg" alt="" loading="lazy"></div><div class="who"><b>Rachael Tong</b><small>Sundial, Century Avenue · 2007 &amp; 2026</small></div><span class="page">p. 13</span></div>
+<div class="diptych">
 <figure><img src="images/11a-2007-sundial.jpg" alt="Me as a toddler laughing in a stroller on Century Avenue; my cousin is erased and replaced with ‘something old, something new.’" loading="lazy"><figcaption>2007</figcaption></figure>
-<figure><img src="images/11b-2026-sundial.jpg" alt="The sundial sculpture on Century Avenue in 2026, surrounded by office towers under a blue sky." loading="lazy"><figcaption>Oct 17, 2026</figcaption></figure>
-</div><span class="count">1/2</span>
+<figure><img src="images/11b-2026-sundial.jpg" alt="The sundial sculpture on Century Avenue in 2026, surrounded by office towers under a blue sky." loading="lazy" style="object-position:42% 50%"><figcaption>Oct 17, 2026</figcaption></figure>
 </div>
-<div class="dots" aria-hidden="true"><i class="on"></i><i></i></div>
 <div class="actions" aria-hidden="true"></div>
 <div class="post-body">
 <p class="quote">“Something old, something new.”</p>
 <p class="legend"><b>Rachael Tong</b>Left: shot in 2007 at the sundial tourist attraction on Century Avenue with my cousin. I used Procreate to digitally erase his face and wrote “something old, something new”. Right: shot on October 17, 2026, at the same attraction from a different perspective.</p>
-<p class="analysis">The place remains recognisable, but the people and the person looking at it have changed. Swipe between them: in 2007 the sundial is a background to a family outing; in 2026 it is the subject, photographed alone, by the child who used to sit in the stroller.</p>
+<p class="analysis">The place remains recognisable, but the people and the person looking at it have changed. Side by side: in 2007 the sundial is a background to a family outing; in 2026 it is the subject, photographed alone, by the child who used to sit in the stroller.</p>
 </div></article>
 
 <article class="post" id="p12">
-<div class="post-head"><div class="avatar"><span>R</span></div><div class="who"><b>Rachael Tong</b><small>My high school volleyball court · 2024</small></div><span class="page">p. 13</span></div>
+<div class="post-head"><div class="avatar"><img src="images/avatar.jpg" alt="" loading="lazy"></div><div class="who"><b>Rachael Tong</b><small>My high school volleyball court · 2024</small></div><span class="page">p. 13</span></div>
 <figure><img src="images/12-2024-volleyball-court.jpg" alt="A school running track and volleyball court seen through a fence; the students playing are erased into white strokes, with a Chinese verse written in the sky." loading="lazy"></figure>
 <div class="actions" aria-hidden="true"></div>
 <div class="post-body">
@@ -252,15 +244,6 @@ document.querySelectorAll('.actions').forEach(bar => {
     if (navigator.share) navigator.share({url}).catch(() => {});
     else navigator.clipboard && navigator.clipboard.writeText(url);
   });
-});
-document.querySelectorAll('.carousel').forEach(c => {
-  const s = c.querySelector('.slides'), count = c.querySelector('.count'),
-        dots = c.parentElement.querySelectorAll('.dots i'), n = s.children.length;
-  s.addEventListener('scroll', () => {
-    const i = Math.round(s.scrollLeft / s.clientWidth);
-    count.textContent = (i + 1) + '/' + n;
-    dots.forEach((d, j) => d.classList.toggle('on', j === i));
-  }, {passive: true});
 });
 </script>
 </body></html>
